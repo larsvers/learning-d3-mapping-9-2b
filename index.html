@@ -4,7 +4,7 @@
 <title>Canvas flight paths</title>
 <meta charset="utf-8">
 
-<script src="../../d3/d3.js"></script>
+<script src="//d3js.org/d3.v4.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="//d3js.org/d3-array.v1.min.js"></script>
 <script src="//d3js.org/d3-geo.v1.min.js"></script>
@@ -342,7 +342,7 @@ function ready(error, routes, airports) {
 /* Load data and handle user input */
 /* =============================== */
 
-d3.json('../../data/flights/countries.topo.json', function(error, world) {
+d3.json('data/countries.topo.json', function(error, world) {
   if (error) throw error;
 
   // Position controls below the absolute positioned canvases (absolute as they need to overlap)
@@ -373,8 +373,8 @@ d3.json('../../data/flights/countries.topo.json', function(error, world) {
 		
 		// Load data as per button clicked
 		d3.queue()
-		  .defer(d3.csv, '../../data/flights/routes_' + flights + '.csv')
-		  .defer(d3.csv, '../../data/flights/airports_' + flights + '.csv')
+		  .defer(d3.csv, 'data/routes_' + flights + '.csv')
+		  .defer(d3.csv, 'data/airports_' + flights + '.csv')
 		  .await(ready);
   
   } // handleFlights()
